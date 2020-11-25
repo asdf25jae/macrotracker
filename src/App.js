@@ -1,25 +1,48 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { Component } from "react";
+// import "bootstrap/dist/css/bootstrap.min.css"; // imports bootstrap into play
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+
+import DailyList from './components/dailyList.component.js';
+import Calendar from './components/calendar.component.js';
+import Info from './components/info.component.js';
+
+// now we have divide up our macro tracker app into components
+// go forward with top-down design 
+
+// use react-router-dom in order to route your components? 
+
+
+// what do we need?, 
+// We need to be able to add items to our macro tracker,
+// and also add macros (fat, carbs, and protein grams) for each item 
+
+class App extends Component {
+  render() { 
+    return (
+      <Router> 
+            <div className="container">
+            <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/home">Macro Tracker</Navbar.Brand>
+            <Nav className="mr-auto">
+              <Nav.Link href="/home">Home</Nav.Link>
+              <Nav.Link href="/calendar">Calendar</Nav.Link>
+              <Nav.Link href="/info">My Info</Nav.Link>
+            </Nav>
+            </Navbar>
+            <Route path="/home" component={ DailyList } />
+            <Route path="/calendar" component={ Calendar } />
+            <Route path="/info" component={ Info } />
+            </div> 
+      </Router>
+    );
+  }
 }
 
 export default App;
