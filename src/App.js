@@ -10,7 +10,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
 import DailyList from './components/dailyList.component.js';
-import Calendar from './components/calendar.component.js';
+// import Calendar from './components/calendar.component.js';
 import Info from './components/info.component.js';
 
 // now we have divide up our macro tracker app into components
@@ -28,17 +28,16 @@ class App extends Component {
     return (
       <Router> 
             <div className="container">
-            <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="/home">Macro Tracker</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/calendar">Calendar</Nav.Link>
-              <Nav.Link href="/info">My Info</Nav.Link>
-            </Nav>
-            </Navbar>
-            <Route path="/home" component={ DailyList } />
-            <Route path="/calendar" component={ Calendar } />
-            <Route path="/info" component={ Info } />
+              <Navbar bg="dark" variant="dark">
+              <Navbar.Brand href="/home">Macro Tracker</Navbar.Brand>
+              <Nav className="mr-auto">
+                <Nav.Link href="/home">Home</Nav.Link>
+                <Nav.Link href="/calendar">Calendar</Nav.Link>
+                <Nav.Link href="/info">My Info</Nav.Link>
+              </Nav>
+              </Navbar>
+              <Route path="/home" component={ DailyList } />
+              <Route path="/info" component={ Info } />
             </div> 
       </Router>
     );
