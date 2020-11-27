@@ -1,6 +1,7 @@
 import React, { Component } from 'react'; 
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
+import ItemForm from './itemForm.component.js';
 // import necessary libraries 
 
 const Item = props => (
@@ -15,7 +16,6 @@ const Item = props => (
         </td>
     </tr>
 );
-
 export default class DailyList extends Component { 
     /* 
      * DailyList component will maintain daily total macros 
@@ -55,6 +55,9 @@ export default class DailyList extends Component {
                     <tbody>
                        { this.showDailyList() }
                     </tbody>
+                    <div> 
+                        <ItemForm />
+                    </div>
                 </Table>
         )
     }

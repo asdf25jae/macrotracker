@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
 // import "bootstrap/dist/css/bootstrap.min.css"; // imports bootstrap into play
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"; 
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"; 
 
 
 import Button from 'react-bootstrap/Button';
@@ -18,7 +18,6 @@ import Info from './components/info.component.js';
 
 // use react-router-dom in order to route your components? 
 
-
 // what do we need?, 
 // We need to be able to add items to our macro tracker,
 // and also add macros (fat, carbs, and protein grams) for each item 
@@ -28,16 +27,18 @@ class App extends Component {
     return (
       <Router> 
             <div className="container">
-              <Navbar bg="dark" variant="dark">
-              <Navbar.Brand href="/home">Macro Tracker</Navbar.Brand>
-              <Nav className="mr-auto">
-                <Nav.Link href="/home">Home</Nav.Link>
-                <Nav.Link href="/calendar">Calendar</Nav.Link>
-                <Nav.Link href="/info">My Info</Nav.Link>
-              </Nav>
+              <Navbar bg="dark" varint="dark">
+                <Navbar.Brand href="/">Macro Tracker</Navbar.Brand>
+                  <Nav className="mr-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/calendar">Calendar</Nav.Link>
+                    <Nav.Link href="/info">My Info</Nav.Link>
+                  </Nav>
               </Navbar>
-              <Route path="/home" component={ DailyList } />
-              <Route path="/info" component={ Info } />
+              <Switch> 
+                <Route path="/" component={DailyList} />
+                <Route path="/info" component={Info} />
+              </Switch>
             </div> 
       </Router>
     );
