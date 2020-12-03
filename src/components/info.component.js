@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-export default class MyInfo extends Component { 
+export default class MyInfo extends Component {
+
     render() { 
         return ( 
            <div className= "container">

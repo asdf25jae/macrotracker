@@ -1,11 +1,11 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
 // import "bootstrap/dist/css/bootstrap.min.css"; // imports bootstrap into play
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom"; 
+import { BrowserRouter as Router, Route } from "react-router-dom"; 
 
 
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
@@ -30,15 +30,17 @@ class App extends Component {
               <Navbar bg="dark" varint="dark">
                 <Navbar.Brand href="/">Macro Tracker</Navbar.Brand>
                   <Nav className="mr-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/daily">Daily List</Nav.Link>
                     <Nav.Link href="/calendar">Calendar</Nav.Link>
                     <Nav.Link href="/info">My Info</Nav.Link>
                   </Nav>
               </Navbar>
-              <Switch> 
-                <Route path="/" component={DailyList} />
-                <Route path="/info" component={Info} />
-              </Switch>
+              <Route path="/daily">
+                <DailyList />
+              </Route>
+              <Route path="/info">
+                <Info />
+              </Route>  
             </div> 
       </Router>
     );
