@@ -9,9 +9,9 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 
-import DailyList from './components/dailyList.component.js';
-// import Calendar from './components/calendar.component.js';
-import Info from './components/info.component.js';
+import DailyList from './components/dailyList.component';
+// import Calendar from './components/calendar.component.tsx';
+import Info from './components/info.component';
 
 // now we have divide up our macro tracker app into components
 // go forward with top-down design 

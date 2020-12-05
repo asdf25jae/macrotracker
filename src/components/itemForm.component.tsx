@@ -14,7 +14,8 @@ export default class ItemForm extends Component {
             fat: 0, 
             kcal: 0
         } 
-        this.handleSubmit = this.handleSubmit.bind(this); 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this); 
     }
 
     handleChange(e, field) { 
@@ -24,6 +25,7 @@ export default class ItemForm extends Component {
     }
 
     handleSubmit(e) { 
+        console.log("WHOOHOOO submitted!")
         alert('A food item was submitted: ' + this.state); 
         e.preventDefault(); 
     }

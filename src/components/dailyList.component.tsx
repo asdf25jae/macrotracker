@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import Table from 'react-bootstrap/Table';
 // import { Link } from 'react-router-dom';
-import ItemForm from './itemForm.component.js';
+import ItemForm from './itemForm.component.tsx';
 import PropTypes from 'prop-types';
 
 import '../App.css';
