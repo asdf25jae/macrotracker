@@ -1,14 +1,14 @@
 import React, { Component } from 'react'; 
 import Table from 'react-bootstrap/Table';
 // import { Link } from 'react-router-dom';
-import ItemForm from './itemForm.component.tsx';
+import ItemForm from './itemForm.component';
 import PropTypes from 'prop-types';
 
 import '../App.css';
 
 // import necessary libraries 
 
-const Item = (props) => (
+const Item = (props: any) => (
     <tr>
         <td>{props.item.name}</td>
         <td>{props.item.carbs_content}</td>
@@ -29,13 +29,23 @@ Item.propTypes = {
     state: PropTypes
 };
 
-export default class DailyList extends Component { 
+type ListProps = { };
+
+type ListState = { 
+    itemList: any[]; 
+    totalCarbs: number; 
+    totalProteins: number; 
+    totalFat: number;
+    totalKcal: number;
+};
+
+export default class DailyList extends Component<ListProps, ListState> { 
     /* 
      * DailyList component will maintain daily total macros 
      * along with the list of items that it is keeping track of 
      */
 
-    constructor(props) { 
+    constructor(props: any) { 
         super(props);
         
         this.state = { 
@@ -64,6 +74,15 @@ export default class DailyList extends Component {
         </tr> 
     }
 
+    handleCallback = (childData: any) => { 
+        this.state.itemList.push(childData.itemName);
+        this.setState({itemList: this.state.itemList,
+                       totalCarbs: this.state.totalCarbs + childData.carbs, 
+                       totalProteins: this.state.totalProteins + childData.protein, 
+                       totalFat: this.state.totalFat + childData.fat, 
+                       totalKcal: this.state.totalKcal + childData.kcal});
+    }
+
     render() { 
         return ( 
                 <div className="mainDailyList">
@@ -82,7 +101,7 @@ export default class DailyList extends Component {
                         </tbody>
                     </Table>
                     <div className="itemForm-footer"> 
-                        <ItemForm />
+                        <ItemForm parentCallback = {this.handleCallback}/>
                     </div>
                 </div>
         )

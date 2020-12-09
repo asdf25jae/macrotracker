@@ -27,7 +27,7 @@ class App extends Component {
     return (
       <Router> 
             <div className="container">
-              <Navbar bg="dark" varint="dark">
+              <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="/">Macro Tracker</Navbar.Brand>
                   <Nav className="mr-auto">
                     <Nav.Link href="/daily">Daily List</Nav.Link>

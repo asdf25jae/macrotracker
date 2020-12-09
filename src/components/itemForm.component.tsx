@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
-
+// import PropTypes from "prop-types";
 
 // creates the ItemForm
 
-export default class ItemForm extends Component { 
-    constructor(props) { 
+interface ItemFormProps { 
+    parentCallback: (arg0: any) => void;
+}
+
+interface ItemFormState { 
+    itemName: string;
+    carbs: number; 
+    protein: number;
+    fat: number; 
+    kcal: number;
+}
+
+export default class ItemForm extends Component<ItemFormProps, ItemFormState> { 
+    constructor(props: ItemFormProps) { 
         super(props);
         this.state = {
             itemName: "", 
@@ -18,15 +30,16 @@ export default class ItemForm extends Component {
         this.handleChange = this.handleChange.bind(this); 
     }
 
-    handleChange(e, field) { 
+    handleChange(e: any, field: any) { 
        this.setState({ 
            [field]: e.target.value
        })
     }
 
-    handleSubmit(e) { 
+    handleSubmit(e: any) { 
         console.log("WHOOHOOO submitted!")
         alert('A food item was submitted: ' + this.state); 
+        this.props.parentCallback(this.state);
         e.preventDefault(); 
     }
 
@@ -72,5 +85,9 @@ export default class ItemForm extends Component {
         </form>
       )
     }
-
 }
+
+/* ItemForm.propTypes = { 
+    parentCallback: PropTypes.func,
+    state: PropTypes
+} */
